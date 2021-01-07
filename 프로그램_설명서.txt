@@ -1,0 +1,57 @@
+NIA-AI-HUB-IDEATHON-EYE-CONTACT
+
+AI 허브 인공지능 학습용 데이터 활용 아이디어 공모전 - 실현 가능 서비스 부문
+
+<팀 토니스빠끄>
+
+[아이컨택(안면인식 및 동작인식을 활용한 온라인 수업 감독 및 보조 서비스)]
+
+팀장: 김동희 / 도쿄 고쿠시칸대학 20 이공학부 이공학과 전자정보컴퓨터공학
+팀원1: 강재원 / 상지대학교 20 융합기술공과대학 정보통신소프트웨어공학
+팀원2: 이서진 / 건국대학교 20 사범대학 교육공학
+
+LEADER: KIM DONGHEE / TOKYO KOKUSHIKAN UNIVERSITY 20, School of Science and Engineering, Faculty of Science and Technology, Department of Electronics and Informatics
+MEMBER1: KANG JAEWON / SANGJI UNIVERSITY 20, College of Science & Engineering, Department of Information and Communication Engineering
+MEMBER2: LEE SEOJIN / KONKUK UNIVERSITY 20, College of Education, Department of Educational Technology
+
+COPYRIGHT © 2021 KIM DONGHEE / KANG JAEWON / LEE SEOJIN. ALL RIGHTS RESERVED.
+We sincerely hope for the end of COVID-19 in Republic of Korea and all over the world.
+
+---
+
+I. 폴더별 개요
+
+    1. do_not_cheat: 눈동자 감지 (시선을 감지하여 다른행동 여부 판단)
+
+        Gaze-Tracking 오픈소스를 사용하였다.
+
+
+    2. do_not_sleep: 안구 감지 (안구와 눈꺼풀의 감김 정도를 감지하여 졸음 여부 판단), 랜드마크를 이용하여 실제 얼굴을 보지 않아도 상대의 동작을 유추 가능
+
+
+    3. verify_student: 사전 학생 사진 및 동영상 데이터를 기반으로 얼굴을 학습시켜 본인 확인 절차에 사용 (대리출석 및 대리시험 방지)
+
+        1) face_save.py
+            resource/for_train/video 안의 '이름_아이디.mp4' 영상파일을 차례대로 불러들여 OpenCV CascadeClassifier 분류기의 Haarcasacade 검출기를 이용해 영상속 얼굴을 'face_cntMax'개 만찾는다.
+            찾은 얼굴을 250px*250px로 리스케일링하여 data/face/image/'이름_아이디' 디렉토리에 저장한다. 저장되는 파일은 n.jpg (n = 1; n < face_cntMax + 1; n++)로 지정한다.
+
+        2) face_train.py
+            저장된 얼굴 이미지로 LBPHFaceRecognizer를 훈련시킨다.
+            data/face/trained/faces.xml에 훈련 모델 데이터를 저장한다.
+
+        3) face_detect.py
+            Haarcasacade와 LBPHFaceRecognizer 객체 생성 후,  xml파일에서 훈련 모델 데이터를 불러온다.
+            resource/for_detect/video 디렉토리에서 영상을 불러온후 영상속 얼굴을 검출해 사전 검출파일 사이즈 250px*250px로 리스케일링 한다.
+            불러온 훈련 모델 데이터와 비교하여 유사도를 예측한다.
+
+        4) run_all.py
+            1) ~ 3) 을 자동화 시킴.
+
+        (*) 데이터 훈련 불가능시, 루트 내 (archive) 폴더를 복사해 와 사용하면 된다.
+
+
+II. 주의점
+
+    1. 이 프로그램은 응용개발을 한다는 전제 하에 개발되었다.
+    2. 지정된 사진 및 동영상 대신, 웹캠을 불러와 사용하여도 무방하기에 '아이컨택(안면인식 및 동작인식을 활용한 온라인 수업 감독 및 보조 서비스)' 활용이 가능하다.
+    3. 완벽한 '아이컨택(안면인식 및 동작인식을 활용한 온라인 수업 감독 및 보조 서비스)'를 구현하기보다, 기반이 되는 알고리즘 및 프로그램을 구현하여 다양한 활용이 가능하도록 제작하였다.
