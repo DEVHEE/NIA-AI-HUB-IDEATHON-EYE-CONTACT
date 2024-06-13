@@ -2,15 +2,22 @@
 
 ## AI 허브 인공지능 학습용 데이터 활용 아이디어 공모전 - 실현 가능 서비스 부문
 
-### **EYE CONTACT (Online class supervision and assistance services using facial and motion recognition)**
+### **EYE CONTACT**
+#### **Online class supervision and assistance services using facial and motion recognition**
 
 ---
 
-LEADER: KIM DONGHEE / TOKYO KOKUSHIKAN UNIVERSITY 20, School of Science and Engineering, Faculty of Science and Technology, Department of Electronics and Informatics
+**LEADER: KIM DONGHEE**
 
-MEMBER1: KANG JAEWON / SANGJI UNIVERSITY 20, College of Science & Engineering, Department of Information and Communication Engineering
+Kokushikan University 20, School of Science and Engineering, Department of Science and Engineering, Electronics and Informatics Course
 
-MEMBER2: LEE SEOJIN / KONKUK UNIVERSITY 20, College of Education, Department of Educational Technology
+**MEMBER1: KANG JAEWON**
+
+Sanji University 20, College of Science & Engineering, Department of Information and Communication Engineering
+
+**MEMBER1: LEE SEOJIN**
+
+Konkuk University 20, College of Education, Department of Educational Technology
 
 ---
 
